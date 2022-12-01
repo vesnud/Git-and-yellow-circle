@@ -4,15 +4,15 @@ import random
 from PyQt5.QtWidgets import QApplication, QMainWindow
 from PyQt5.QtGui import QPainter, QColor
 from PyQt5.QtCore import Qt
-from Ui import Ui_MainWindow
+from PyQt5 import uic
 
 SIZE_X, SIZE_Y = 300, 300
 
 
-class Example(QMainWindow, Ui_MainWindow):
+class Example(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setupUi(self)
+        uic.loadUi('Ui.ui', self)
         self.do_paint = False
         self.fig = 0
         self.x, self.y = random.randint(10, SIZE_X - 10), random.randint(10, SIZE_Y - 10)
